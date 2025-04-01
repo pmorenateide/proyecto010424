@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iberia - Reserva tu vuelo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-red-600 text-white p-4 text-center text-xl font-bold">
+        Iberia - Encuentra tu próximo destino
+    </header>
+    <main class="flex justify-center items-center min-h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold mb-4 text-center">Busca tu vuelo</h2>
+            <form id="flightForm" class="space-y-4">
+                <div>
+                    <label for="origin" class="block font-semibold">Origen:</label>
+                    <input type="text" id="origin" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label for="destination" class="block font-semibold">Destino:</label>
+                    <input type="text" id="destination" class="w-full p-2 border rounded" required>
+                </div>
+                <div>
+                    <label for="date" class="block font-semibold">Fecha:</label>
+                    <input type="date" id="date" class="w-full p-2 border rounded" required>
+                </div>
+                <button type="submit" class="w-full bg-red-600 text-white p-2 rounded font-semibold hover:bg-red-700">
+                    Buscar vuelo
+                </button>
+            </form>
+            <p id="result" class="text-center text-green-600 font-bold mt-4"></p>
+        </div>
+    </main>
+    <script>
+        document.getElementById("flightForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let origin = document.getElementById("origin").value;
+            let destination = document.getElementById("destination").value;
+            let date = document.getElementById("date").value;
+            document.getElementById("result").textContent = `Vuelo encontrado: ${origin} → ${destination} el ${date}`;
+        });
+    </script>
+</body>
+</html>
